@@ -13,26 +13,21 @@ import MapKit
 
 class ViewController: UIViewController {
 
-    @IBOutlet weak var username: UITextField!
-    @IBOutlet weak var password: UITextField!
+    @IBOutlet weak var usernameInsert: UITextField!
+    @IBOutlet weak var passwordInsert: UITextField!
     
-    @IBAction func signUp(sender: AnyObject) {
-        var user = PFUser()
-        user.username = username.text!
-        user.password = password.text!
-        user.signUpInBackgroundWithBlock {
-            (succeeded: Bool, error: NSError?) -> Void in
-            if let error = error {
-                let errorString = error.userInfo["error"] as? NSString
-                // Show the errorString somewhere and let the user try again.
+    @IBAction func logIn(sender: AnyObject) {
+        PFUser.logInWithUsernameInBackground(usernameInsert.text!, password:passwordInsert.text!) {
+            (user: PFUser?, error: NSError?) -> Void in
+            if user != nil {
+                // Do stuff after successful login.
+                print("logined in")
             } else {
-                // Hooray! Let them use the app now.
+                // The login failed. Check error to see why.
             }
         }
     }
     
-    @IBAction func logIn(sender: AnyObject) {
-    }
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
@@ -41,5 +36,11 @@ class ViewController: UIViewController {
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
+    }
+    
+    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
+        if (segue.identifier == "popover") {
+            var ses : signup = segue.destinationViewController as! signup
+        }
     }
 }

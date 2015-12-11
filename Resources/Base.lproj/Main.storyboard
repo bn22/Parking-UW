@@ -476,7 +476,7 @@
                             <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" mapType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="VMN-Pg-iLb">
                                 <rect key="frame" x="86" y="52" width="244" height="237"/>
                                 <variation key="widthClass=compact" fixedFrame="YES">
-                                    <rect key="frame" x="65" y="53" width="244" height="237"/>
+                                    <rect key="frame" x="65" y="53" width="276" height="259"/>
                                 </variation>
                             </mapView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="dbD-cg-SG0">
@@ -575,11 +575,11 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="N9l-zk-In7" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1844.25" y="347.5"/>
+            <point key="canvasLocation" x="1869.75" y="348.5"/>
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
-        <segue reference="uUK-yD-Jsh"/>
+        <segue reference="MWF-pE-8AV"/>
         <segue reference="Ayv-WB-eN6"/>
     </inferredMetricsTieBreakers>
 </document>

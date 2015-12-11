@@ -19,6 +19,7 @@
 		81BA817F1A49E0F000E65899 /* libstdc++.6.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 81BA817E1A49E0F000E65899 /* libstdc++.6.dylib */; };
 		9D25CDB61C1A6A6600AF5D5C /* ParkingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D25CDB51C1A6A6600AF5D5C /* ParkingViewController.swift */; };
 		9D25CDB81C1A6A9D00AF5D5C /* ParkingCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D25CDB71C1A6A9D00AF5D5C /* ParkingCell.swift */; };
+		9D25CDBA1C1A875D00AF5D5C /* EventViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D25CDB91C1A875D00AF5D5C /* EventViewController.swift */; };
 		A91CFF811C17BEF0006047C7 /* signup.swift in Sources */ = {isa = PBXBuildFile; fileRef = A91CFF801C17BEF0006047C7 /* signup.swift */; };
 /* End PBXBuildFile section */
 
@@ -40,6 +41,7 @@
 		81BA81801A49E10C00E65899 /* ParseUI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = ParseUI.framework; sourceTree = "<group>"; };
 		9D25CDB51C1A6A6600AF5D5C /* ParkingViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ParkingViewController.swift; sourceTree = "<group>"; };
 		9D25CDB71C1A6A9D00AF5D5C /* ParkingCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ParkingCell.swift; sourceTree = "<group>"; };
+		9D25CDB91C1A875D00AF5D5C /* EventViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EventViewController.swift; sourceTree = "<group>"; };
 		A91CFF801C17BEF0006047C7 /* signup.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = signup.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -93,6 +95,7 @@
 				81BA814A1A49DA1800E65899 /* AppDelegate.swift */,
 				81BA814C1A49DA1800E65899 /* ViewController.swift */,
 				A91CFF801C17BEF0006047C7 /* signup.swift */,
+				9D25CDB91C1A875D00AF5D5C /* EventViewController.swift */,
 				9D25CDB71C1A6A9D00AF5D5C /* ParkingCell.swift */,
 				9D25CDB51C1A6A6600AF5D5C /* ParkingViewController.swift */,
 				814C3AC61B69877600E307BB /* Main.storyboard */,
@@ -217,6 +220,7 @@
 				9D25CDB61C1A6A6600AF5D5C /* ParkingViewController.swift in Sources */,
 				81BA814D1A49DA1800E65899 /* ViewController.swift in Sources */,
 				81BA814B1A49DA1800E65899 /* AppDelegate.swift in Sources */,
+				9D25CDBA1C1A875D00AF5D5C /* EventViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

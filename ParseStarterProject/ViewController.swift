@@ -28,8 +28,49 @@ class ViewController: UIViewController {
         }
     }
     
+    var query = PFQuery(className:"Garage_Info")
+    var query2 = PFQuery(className:"specialEvents")
+    var data = [PFObject]()
+    var eventData = [PFObject]()
     override func viewDidLoad() {
         super.viewDidLoad()
+        query.whereKey("garage_name", notEqualTo:"")
+        query.findObjectsInBackgroundWithBlock {
+            (objects: [PFObject]?, error: NSError?) -> Void in
+            
+            if error == nil {
+                // The find succeeded.
+                print("Successfully retrieved \(objects!.count) garages.")
+                // Do something with the found objects
+                if let objects = objects {
+                    //let defaults = NSUserDefaults.standardUserDefaults()
+                    self.data = objects
+                    //defaults.setObject(objects, forKey: "data")
+                }
+            } else {
+                // Log details of the failure
+                print("Error: \(error!) \(error!.userInfo)")
+            }
+        }
+        
+        query2.whereKey("objectId", notEqualTo:"")
+        query2.findObjectsInBackgroundWithBlock {
+            (objects: [PFObject]?, error: NSError?) -> Void in
+            
+            if error == nil {
+                // The find succeeded.
+                print("Successfully retrieved \(objects!.count) garages.")
+                // Do something with the found objects
+                if let objects = objects {
+                    self.eventData = objects
+                    //let defaults2 = NSUserDefaults.standardUserDefaults()
+                    //defaults2.setObject(objects, forKey: "eventData")
+                }
+            } else {
+                // Log details of the failure
+                print("Error: \(error!) \(error!.userInfo)")
+            }
+        }
         // Do any additional setup after loading the view, typically from a nib.
     }
 
@@ -41,6 +82,10 @@ class ViewController: UIViewController {
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
         if (segue.identifier == "popover") {
             var ses : signup = segue.destinationViewController as! signup
+        } else {
+            let view : ParkingViewController = segue.destinationViewController as! ParkingViewController
+            view.data = self.data
+            view.eventData = self.eventData
         }
     }
 }

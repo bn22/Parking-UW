@@ -34,10 +34,11 @@ class ViewController: UIViewController {
     var eventData = [PFObject]()
     override func viewDidLoad() {
         super.viewDidLoad()
-        query.whereKey("garage_name", notEqualTo:"")
+        query.whereKey("garageName", notEqualTo:"")
+        query.orderByAscending("garageName")
         query.findObjectsInBackgroundWithBlock {
             (objects: [PFObject]?, error: NSError?) -> Void in
-            
+        
             if error == nil {
                 // The find succeeded.
                 print("Successfully retrieved \(objects!.count) garages.")
@@ -54,6 +55,7 @@ class ViewController: UIViewController {
         }
         
         query2.whereKey("objectId", notEqualTo:"")
+        query2.orderByAscending("Start_Time")
         query2.findObjectsInBackgroundWithBlock {
             (objects: [PFObject]?, error: NSError?) -> Void in
             

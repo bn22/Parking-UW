@@ -18,7 +18,7 @@ class signup: UIViewController {
     var verfied = false
     
     @IBAction func done(sender: AnyObject) {
-        var user = PFUser()
+        let user = PFUser()
         user.username = usernameSign.text!
         user.password = passwordSign.text!
         user.email = emailSign.text!
@@ -27,7 +27,7 @@ class signup: UIViewController {
             user.signUpInBackgroundWithBlock {
                 (succeeded: Bool, error: NSError?) -> Void in
                 if let error = error {
-                    let errorString = error.userInfo["error"] as? NSString
+                    _ = error.userInfo["error"] as? NSString
                     let alert = UIAlertController(title: "Alert", message: "Your username or email is taken", preferredStyle: UIAlertControllerStyle.Alert)
                     let ok = UIAlertAction(title: "OK", style: UIAlertActionStyle.Default, handler: nil)
                     alert.addAction(ok);

@@ -17,7 +17,7 @@ class ParkingViewController: UIViewController, UITableViewDataSource, UITableVie
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        let defaults = NSUserDefaults.standardUserDefaults()
+        _ = NSUserDefaults.standardUserDefaults()
         //eventData = defaults.arrayForKey("eventData") as! [NSMutableArray]
         ParkingTable.reloadData()
         // Do any additional setup after loading the view.
@@ -38,7 +38,7 @@ class ParkingViewController: UIViewController, UITableViewDataSource, UITableVie
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCellWithIdentifier("ParkingCell") as! ParkingCell
         let garageInfo = self.data[indexPath.row]
-        cell.garageName.text = garageInfo["garage_name"] as! String
+        cell.garageName.text = garageInfo["garageName"] as? String
 
         return cell
     }

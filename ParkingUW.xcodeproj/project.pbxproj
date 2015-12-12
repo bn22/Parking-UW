@@ -21,6 +21,8 @@
 		9D25CDB81C1A6A9D00AF5D5C /* ParkingCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D25CDB71C1A6A9D00AF5D5C /* ParkingCell.swift */; };
 		9D25CDBA1C1A875D00AF5D5C /* EventViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D25CDB91C1A875D00AF5D5C /* EventViewController.swift */; };
 		A91CFF811C17BEF0006047C7 /* signup.swift in Sources */ = {isa = PBXBuildFile; fileRef = A91CFF801C17BEF0006047C7 /* signup.swift */; };
+		AD13F3441C1BFAEE008C670C /* EventCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD13F3431C1BFAEE008C670C /* EventCell.swift */; };
+		AD13F3461C1C053B008C670C /* EventDetailsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD13F3451C1C053B008C670C /* EventDetailsViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -43,6 +45,8 @@
 		9D25CDB71C1A6A9D00AF5D5C /* ParkingCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ParkingCell.swift; sourceTree = "<group>"; };
 		9D25CDB91C1A875D00AF5D5C /* EventViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EventViewController.swift; sourceTree = "<group>"; };
 		A91CFF801C17BEF0006047C7 /* signup.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = signup.swift; sourceTree = "<group>"; };
+		AD13F3431C1BFAEE008C670C /* EventCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EventCell.swift; sourceTree = "<group>"; };
+		AD13F3451C1C053B008C670C /* EventDetailsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EventDetailsViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -99,6 +103,8 @@
 				9D25CDB71C1A6A9D00AF5D5C /* ParkingCell.swift */,
 				9D25CDB51C1A6A6600AF5D5C /* ParkingViewController.swift */,
 				814C3AC61B69877600E307BB /* Main.storyboard */,
+				AD13F3431C1BFAEE008C670C /* EventCell.swift */,
+				AD13F3451C1C053B008C670C /* EventDetailsViewController.swift */,
 			);
 			path = ParseStarterProject;
 			sourceTree = "<group>";
@@ -219,8 +225,10 @@
 				A91CFF811C17BEF0006047C7 /* signup.swift in Sources */,
 				9D25CDB61C1A6A6600AF5D5C /* ParkingViewController.swift in Sources */,
 				81BA814D1A49DA1800E65899 /* ViewController.swift in Sources */,
+				AD13F3461C1C053B008C670C /* EventDetailsViewController.swift in Sources */,
 				81BA814B1A49DA1800E65899 /* AppDelegate.swift in Sources */,
 				9D25CDBA1C1A875D00AF5D5C /* EventViewController.swift in Sources */,
+				AD13F3441C1BFAEE008C670C /* EventCell.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

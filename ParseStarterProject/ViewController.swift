@@ -52,16 +52,17 @@ class ViewController: UIViewController {
                 // Log details of the failure
                 print("Error: \(error!) \(error!.userInfo)")
             }
+            
         }
         
         query2.whereKey("objectId", notEqualTo:"")
-        query2.orderByAscending("Start_Time")
+        query2.orderByAscending("Date")
         query2.findObjectsInBackgroundWithBlock {
             (objects: [PFObject]?, error: NSError?) -> Void in
             
             if error == nil {
                 // The find succeeded.
-                print("Successfully retrieved \(objects!.count) garages.")
+                print("Successfully retrieved \(objects!.count) events.")
                 // Do something with the found objects
                 if let objects = objects {
                     self.eventData = objects

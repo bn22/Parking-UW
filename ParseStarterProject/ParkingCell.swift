@@ -10,6 +10,7 @@ import UIKit
 
 class ParkingCell: UITableViewCell {
     @IBOutlet weak var garageName: UILabel!
+    @IBOutlet weak var openSpot: UILabel!
     
     override func awakeFromNib() {
         super.awakeFromNib()

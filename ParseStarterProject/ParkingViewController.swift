@@ -38,8 +38,13 @@ class ParkingViewController: UIViewController, UITableViewDataSource, UITableVie
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCellWithIdentifier("ParkingCell") as! ParkingCell
         let garageInfo = self.data[indexPath.row]
+        
+        
         cell.garageName.text = garageInfo["garageName"] as? String
-
+        
+    
+        cell.openSpot.text = String(garageInfo["openSpots"])
+        
         return cell
     }
     

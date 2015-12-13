@@ -9,21 +9,29 @@
 import UIKit
 import Parse
 
-class EventDetailsViewController: UIViewController {
+class EventDetailsViewController: UIViewController{
 
     @IBOutlet weak var EventName: UILabel!
     @IBOutlet weak var StartTime: UILabel!
     @IBOutlet weak var EndTime: UILabel!
     @IBOutlet weak var Description: UILabel!
     @IBOutlet weak var EventTitle: UILabel!
+    
     var data = [PFObject]()
     var eventData = [PFObject]()
     var index = 0
     
+    
+    var array = []
+    
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-
         // Do any additional setup after loading the view.
+        print(array)
+        
+        
+        
     }
 
     override func didReceiveMemoryWarning() {
@@ -35,9 +43,12 @@ class EventDetailsViewController: UIViewController {
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
         // Get the new view controller using segue.destinationViewController.
         // Pass the selected object to the new view controller.
-        let view = segue.destinationViewController as! EventViewController
-        view.data = self.data
-        view.eventData = self.eventData
+        
+            let view = segue.destinationViewController as! EventViewController
+            view.data = self.data
+            view.eventData = self.eventData
+        
+        
     }
 
 

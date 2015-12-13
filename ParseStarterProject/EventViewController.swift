@@ -16,6 +16,9 @@ class EventViewController: UIViewController, UITableViewDataSource, UITableViewD
     var eventData = [PFObject]()
     var indexRow = 0
     
+   var array = []
+   
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         _ = NSUserDefaults.standardUserDefaults()
@@ -49,26 +52,35 @@ class EventViewController: UIViewController, UITableViewDataSource, UITableViewD
         return eventData.count
     }
     
+    func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
+        //NSLog("you selected \(indexPath.row)")
+        let event = self.eventData[indexPath.row]
+        let event_name = event["Event_Name"] as! String
+        let desc = event["Description"] as! String
+        let date = event["Date"] as! String
+        let restriction = event["Restriction"] as! String
+        array = [event_name,desc,date,restriction]
+       
+    }
+    
     
     // MARK: - Navigation
 
     // In a storyboard-based application, you will often want to do a little preparation before navigation
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
-        if(segue.identifier == ""){
+        if(segue.identifier == "eventDetail"){
+            let view = segue.destinationViewController as! EventDetailsViewController
+            view.data = self.data
+            view.eventData = self.eventData
+            view.array = self.array
+            
+            //view.index = 1
+           
+            
+        }else if (segue.identifier == "backParking"){
             let view = segue.destinationViewController as! ParkingViewController
             view.data = self.data
             view.eventData = self.eventData
-        }else{
-            let view = segue.destinationViewController as! EventDetailsViewController
-            if let selectedCell = sender as? EventCell{
-               // let indexPath = EventTableView.indexPathForCell(EventCell)!.row
-                view.data = self.data
-                view.eventData = self.eventData
-                //var ab = EventTableView[indexPath.row]
-                view.index = 1
-            }
-            
-            
         }
     }
 }

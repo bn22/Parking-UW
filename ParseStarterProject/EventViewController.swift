@@ -44,6 +44,7 @@ class EventViewController: UIViewController, UITableViewDataSource, UITableViewD
         let cell = tableView.dequeueReusableCellWithIdentifier("EventCell") as! EventCell
         let eventInfo = self.eventData[indexPath.row]
         cell.EventName.text = eventInfo["Event_Name"] as? String
+        cell.EventRestriction.text = eventInfo["Calendar"] as? String
         
         return cell
     }
@@ -60,7 +61,8 @@ class EventViewController: UIViewController, UITableViewDataSource, UITableViewD
         let date = event["Date"] as! String
         let restriction = event["Restriction"] as! String
         array = [event_name,desc,date,restriction]
-       
+        
+        performSegueWithIdentifier("eventDetail", sender: self)
     }
     
     
@@ -69,6 +71,7 @@ class EventViewController: UIViewController, UITableViewDataSource, UITableViewD
     // In a storyboard-based application, you will often want to do a little preparation before navigation
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
         if(segue.identifier == "eventDetail"){
+            
             let view = segue.destinationViewController as! EventDetailsViewController
             view.data = self.data
             view.eventData = self.eventData

@@ -11,9 +11,8 @@ import Parse
 
 class EventDetailsViewController: UIViewController{
 
-    @IBOutlet weak var EventName: UILabel!
-    @IBOutlet weak var StartTime: UILabel!
-    @IBOutlet weak var EndTime: UILabel!
+    @IBOutlet weak var restriction: UILabel!
+    @IBOutlet weak var date: UILabel!
     @IBOutlet weak var Description: UILabel!
     @IBOutlet weak var EventTitle: UILabel!
     
@@ -29,11 +28,13 @@ class EventDetailsViewController: UIViewController{
         super.viewDidLoad()
         // Do any additional setup after loading the view.
         print(array)
-        
-        
-        
+        Description.text = array[1] as? String
+        date.text = array[2] as? String
+        restriction.text = array [3] as? String
+        EventTitle.text = array[0] as? String
     }
-
+    
+    
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.

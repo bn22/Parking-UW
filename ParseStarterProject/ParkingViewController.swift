@@ -14,6 +14,7 @@ class ParkingViewController: UIViewController, UITableViewDataSource, UITableVie
     @IBOutlet weak var ParkingTable: UITableView!
     var eventData = [PFObject]()
     var data = [PFObject]()
+    var array = []
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -52,6 +53,23 @@ class ParkingViewController: UIViewController, UITableViewDataSource, UITableVie
         return data.count
     }
     
+    func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
+        //NSLog("you selected \(indexPath.row)")
+        
+        let garage = self.data[indexPath.row]
+        let garage_name = garage["garageName"] as! String
+        let serial = garage["garage_name"] as! String
+        let openSpot = String(garage["openSpots"])
+        let totalSpot = String(garage["totalSpots"])
+        let rate = garage["Rate"] as! String
+        let address = garage["address"] as! String
+        array = [garage_name, serial, openSpot, totalSpot, rate, address]
+        
+        
+        performSegueWithIdentifier("parkingDetail", sender: self)
+    }
+
+    
     
     // MARK: - Navigation
 
@@ -63,6 +81,11 @@ class ParkingViewController: UIViewController, UITableViewDataSource, UITableVie
             let view = segue.destinationViewController as! EventViewController
             view.data = self.data
             view.eventData = self.eventData
+        }else if (segue.identifier == "parkingDetail") {
+            let view = segue.destinationViewController as! ParkingDetailsViewController
+            view.data = self.data
+            view.eventData = self.eventData
+            view.array = self.array
         }
     }
 

@@ -27,7 +27,7 @@ class EventDetailsViewController: UIViewController{
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
-        print(array)
+       
         Description.text = array[1] as? String
         date.text = array[2] as? String
         restriction.text = array [3] as? String

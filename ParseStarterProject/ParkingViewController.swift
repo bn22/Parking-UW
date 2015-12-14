@@ -63,9 +63,9 @@ class ParkingViewController: UIViewController, UITableViewDataSource, UITableVie
         let totalSpot = String(garage["totalSpots"])
         let rate = garage["Rate"] as! String
         let address = garage["address"] as! String
-        array = [garage_name, serial, openSpot, totalSpot, rate, address]
-        
-        
+        let latitude = garage["Latitude"] as! Double
+        let longitude =  garage["Longitude"] as! Double
+        array = [garage_name, serial, openSpot, totalSpot, rate, address, latitude, longitude]
         performSegueWithIdentifier("parkingDetail", sender: self)
     }
 

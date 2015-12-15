@@ -41,11 +41,15 @@ class ParkingViewController: UIViewController, UITableViewDataSource, UITableVie
         let cell = tableView.dequeueReusableCellWithIdentifier("ParkingCell") as! ParkingCell
         let garageInfo = self.data[indexPath.row]
         
-        
         cell.garageName.text = garageInfo["garageName"] as? String
-        
     
         cell.openSpot.text = String(garageInfo["openSpots"])
+        let spots = garageInfo["openSpots"] as? Int
+        if (spots ==  0) {
+            cell.openSpot.textColor = UIColor.redColor()
+        } else {
+            cell.openSpot.textColor = UIColor.greenColor()
+        }
         
         return cell
     }
@@ -84,7 +88,12 @@ class ParkingViewController: UIViewController, UITableViewDataSource, UITableVie
                     //let defaults = NSUserDefaults.standardUserDefaults()
                     self.data = objects
                     //defaults.setObject(objects, forKey: "data")
+                    self.ParkingTable.reloadData()
                 }
+                let alert = UIAlertController(title: "Alert", message: "Updated Successfully", preferredStyle: UIAlertControllerStyle.Alert)
+                let ok = UIAlertAction(title: "OK", style: UIAlertActionStyle.Default, handler: nil)
+                alert.addAction(ok);
+                self.presentViewController(alert, animated: true, completion: nil)
             } else {
                 // Log details of the failure
                 print("Error: \(error!) \(error!.userInfo)")

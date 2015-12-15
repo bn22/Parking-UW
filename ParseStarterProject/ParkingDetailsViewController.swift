@@ -19,6 +19,7 @@ class ParkingDetailsViewController: UIViewController, MKMapViewDelegate, CLLocat
     @IBOutlet weak var rate: UILabel!
     @IBOutlet weak var address: UILabel!
     
+    @IBOutlet weak var availableTitle: UILabel!
     @IBOutlet weak var map: MKMapView!
     var myRoute : MKRoute?
     var point1 = MKPointAnnotation()
@@ -37,7 +38,16 @@ class ParkingDetailsViewController: UIViewController, MKMapViewDelegate, CLLocat
         totalSpot.text = array[3] as? String
         rate.text = array[4] as? String
         address.text = array[5] as? String
+        print(array[2])
+        let spots = array[2] as? String
+        if (spots == "0") {
+            availableTitle.text = "No Spots"
+            availableTitle.textColor = UIColor.redColor()
+        } else {
+            availableTitle.text = "Spots Open"
+            availableTitle.textColor = UIColor.greenColor()
         
+        }
         point1.coordinate = CLLocationCoordinate2DMake((array[6] as? Double)!, (array[7] as? Double)!)
         point1.title = array[0] as? String
         map.addAnnotation(point1)

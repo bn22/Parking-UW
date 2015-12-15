@@ -9,13 +9,29 @@
             shouldBeEnabled = "No"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "ParseStarterProject/ParkingViewController.swift"
-            timestampString = "471908261.108075"
+            filePath = "ParseStarterProject/ParkingDetailsViewController.swift"
+            timestampString = "471912856.64623"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "48"
-            endingLineNumber = "48"
-            landmarkName = "tableView(_:cellForRowAtIndexPath:)"
+            startingLineNumber = "59"
+            endingLineNumber = "59"
+            landmarkName = "updateUserPark(_:)"
+            landmarkType = "5">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "ParseStarterProject/ParkingDetailsViewController.swift"
+            timestampString = "471912856.64623"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "83"
+            endingLineNumber = "83"
+            landmarkName = "updateUserPark(_:)"
             landmarkType = "5">
          </BreakpointContent>
       </BreakpointProxy>

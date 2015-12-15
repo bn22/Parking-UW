@@ -15,17 +15,10 @@ class ViewController: UIViewController {
 
     @IBOutlet weak var usernameInsert: UITextField!
     @IBOutlet weak var passwordInsert: UITextField!
+    var loginPass : Bool = false
     
     @IBAction func logIn(sender: AnyObject) {
-        PFUser.logInWithUsernameInBackground(usernameInsert.text!, password:passwordInsert.text!) {
-            (user: PFUser?, error: NSError?) -> Void in
-            if user != nil {
-                // Do stuff after successful login.
-                print("logined in")
-            } else {
-                // The login failed. Check error to see why.
-            }
-        }
+       
     }
     
     var query = PFQuery(className:"Garage_Info")
@@ -83,12 +76,33 @@ class ViewController: UIViewController {
     }
     
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
+        PFUser.logInWithUsernameInBackground(usernameInsert.text!, password:passwordInsert.text!) {
+            (user: PFUser?, error: NSError?) -> Void in
+            if user != nil {
+                self.loginPass = true
+                // Do stuff after successful login.
+                print("logined in")
+            } else {
+                self.loginPass = false
+                // The login failed. Check error to see w....hy.
+            }
+        }
+        print(loginPass)
         if (segue.identifier == "popover") {
             var ses : signup = segue.destinationViewController as! signup
-        } else {
-            let view : ParkingViewController = segue.destinationViewController as! ParkingViewController
-            view.data = self.data
-            view.eventData = self.eventData
+        } else if (segue.identifier == "confirmedLogin") {
+            print(loginPass)
+            if (loginPass == false) {
+                let alert = UIAlertController(title: "Alert", message: "Login Failed", preferredStyle: UIAlertControllerStyle.Alert)
+                let ok = UIAlertAction(title: "OK", style: UIAlertActionStyle.Default, handler: nil)
+                alert.addAction(ok);
+                self.presentViewController(alert, animated: true, completion: nil)
+            } else {
+                let view : ParkingViewController = segue.destinationViewController as! ParkingViewController
+                view.data = self.data
+                view.eventData = self.eventData
+                view.dateShow = false
+            }
         }
     }
 }

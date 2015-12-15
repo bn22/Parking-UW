@@ -16,6 +16,7 @@ class ParkingViewController: UIViewController, UITableViewDataSource, UITableVie
     var data = [PFObject]()
     var array = []
     var query = PFQuery(className:"Garage_Info")
+    var dateShow = Bool()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -23,6 +24,29 @@ class ParkingViewController: UIViewController, UITableViewDataSource, UITableVie
         //eventData = defaults.arrayForKey("eventData") as! [NSMutableArray]
         ParkingTable.reloadData()
         // Do any additional setup after loading the view.
+
+    }
+    
+    override func viewDidAppear(animated: Bool) {
+        if (!dateShow) {
+            let date = NSDate()
+            let unitFlags: NSCalendarUnit = [.Hour, .Day, .Month, .Year]
+            let components = NSCalendar.currentCalendar().components(unitFlags, fromDate: date)
+            let month = components.month
+            let day = components.day
+            for (var i = 0; i < self.eventData.count; i++) {
+                let temp = self.eventData[i]
+                let eventDay = temp["Day"] as? Int
+                let eventMonth = temp["Month"] as? Int
+                if (day == eventDay && month == eventMonth) {
+                    let eventName = temp["Event_Name"] as? String
+                    let alert = UIAlertController(title: "Alert", message: "Today is \(eventName!)", preferredStyle: UIAlertControllerStyle.Alert)
+                    let ok = UIAlertAction(title: "OK", style: UIAlertActionStyle.Default, handler: nil)
+                    alert.addAction(ok);
+                    self.presentViewController(alert, animated: true, completion: nil)
+                }
+            }
+        }
     }
 
     override func didReceiveMemoryWarning() {
@@ -40,6 +64,9 @@ class ParkingViewController: UIViewController, UITableViewDataSource, UITableVie
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCellWithIdentifier("ParkingCell") as! ParkingCell
         let garageInfo = self.data[indexPath.row]
+        let currentUser = PFUser.currentUser()
+        let parked = currentUser!["garage_name"] as? String
+        let garageName = garageInfo["garage_name"] as? String
         
         cell.garageName.text = garageInfo["garageName"] as? String
     
@@ -49,6 +76,10 @@ class ParkingViewController: UIViewController, UITableViewDataSource, UITableVie
             cell.openSpot.textColor = UIColor.redColor()
         } else {
             cell.openSpot.textColor = UIColor.greenColor()
+        }
+        
+        if (parked == garageName) {
+            cell.openSpot.textColor = UIColor.blueColor()
         }
         
         return cell

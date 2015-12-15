@@ -796,8 +796,22 @@
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <state key="normal" title="Park Here"/>
                                 <variation key="heightClass=regular-widthClass=compact" fixedFrame="YES">
-                                    <rect key="frame" x="131" y="571" width="112" height="45"/>
+                                    <rect key="frame" x="52" y="571" width="112" height="45"/>
                                 </variation>
+                                <connections>
+                                    <action selector="addUserPark:" destination="7BY-NJ-tvr" eventType="touchUpInside" id="Eoy-b1-rxE"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="hO8-Bl-pAn">
+                                <rect key="frame" x="-23" y="-15" width="46" height="30"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="18"/>
+                                <state key="normal" title="Leave"/>
+                                <variation key="heightClass=regular-widthClass=compact" fixedFrame="YES">
+                                    <rect key="frame" x="202" y="571" width="112" height="45"/>
+                                </variation>
+                                <connections>
+                                    <action selector="updateUserPark:" destination="7BY-NJ-tvr" eventType="touchUpInside" id="AHB-bf-3IU"/>
+                                </connections>
                             </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -817,6 +831,7 @@
                                 <exclude reference="EGX-eP-hhg"/>
                                 <exclude reference="UnW-IY-Vrw"/>
                                 <exclude reference="7in-3h-1Jw"/>
+                                <exclude reference="hO8-Bl-pAn"/>
                             </mask>
                         </variation>
                         <variation key="widthClass=compact">
@@ -839,6 +854,7 @@
                                 <include reference="K5f-Yb-Xyg"/>
                                 <include reference="EGX-eP-hhg"/>
                                 <include reference="7in-3h-1Jw"/>
+                                <include reference="hO8-Bl-pAn"/>
                             </mask>
                         </variation>
                     </view>

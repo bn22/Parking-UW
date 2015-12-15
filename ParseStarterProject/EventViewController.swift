@@ -84,6 +84,7 @@ class EventViewController: UIViewController, UITableViewDataSource, UITableViewD
             let view = segue.destinationViewController as! ParkingViewController
             view.data = self.data
             view.eventData = self.eventData
+            view.dateShow = true
         }
     }
 }

@@ -29,6 +29,59 @@ class ParkingDetailsViewController: UIViewController, MKMapViewDelegate, CLLocat
     var data = [PFObject]()
     var eventData = [PFObject]()
     var array = []
+    let query = PFQuery(className: "User_Parked")
+    
+    @IBAction func addUserPark(sender: UIButton) {
+        
+        let currentUser = PFUser.currentUser()
+        if currentUser != nil {
+            currentUser!["garage_name"] = array[1] as? String
+            currentUser?.saveInBackgroundWithBlock {
+                (success: Bool, error: NSError?) -> Void in
+                if (success) {
+                    print("save successful")
+                    let alert = UIAlertController(title: "Alert", message: "Saved Parking Location", preferredStyle: UIAlertControllerStyle.Alert)
+                    let ok = UIAlertAction(title: "OK", style: UIAlertActionStyle.Default, handler: nil)
+                    alert.addAction(ok);
+                    self.presentViewController(alert, animated: true, completion: nil)
+                } else {
+                    
+                }
+            }
+        } else {
+            
+        }
+    }
+    
+    @IBAction func updateUserPark(sender: UIButton) {
+        let currentUser = PFUser.currentUser()
+        let lot = currentUser!["garage_name"] as? String
+        if (lot == "null") {
+            let alert = UIAlertController(title: "Alert", message: "Park somewhere first!", preferredStyle: UIAlertControllerStyle.Alert)
+            let ok = UIAlertAction(title: "OK", style: UIAlertActionStyle.Default, handler: nil)
+            alert.addAction(ok);
+            self.presentViewController(alert, animated: true, completion: nil)
+        } else {
+            if currentUser != nil {
+                currentUser!["garage_name"] = "null"
+                currentUser?.saveInBackgroundWithBlock {
+                    (success: Bool, error: NSError?) -> Void in
+                    if (success) {
+                        print("update successful")
+                        let alert = UIAlertController(title: "Alert", message: "Removed Parking Location", preferredStyle: UIAlertControllerStyle.Alert)
+                        let ok = UIAlertAction(title: "OK", style: UIAlertActionStyle.Default, handler: nil)
+                        alert.addAction(ok);
+                        self.presentViewController(alert, animated: true, completion: nil)
+                    } else {
+                        
+                    }
+                }
+            } else {
+                
+            }
+        }
+        
+    }
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -125,7 +178,7 @@ class ParkingDetailsViewController: UIViewController, MKMapViewDelegate, CLLocat
         let view = segue.destinationViewController as! ParkingViewController
         view.data = self.data
         view.eventData = self.eventData
-        
+        view.dateShow = true
         
     }
     

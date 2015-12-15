@@ -35,7 +35,7 @@ class ViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         query.whereKey("garageName", notEqualTo:"")
-        query.orderByAscending("garageName")
+        query.orderByDescending("openSpots")
         query.findObjectsInBackgroundWithBlock {
             (objects: [PFObject]?, error: NSError?) -> Void in
         

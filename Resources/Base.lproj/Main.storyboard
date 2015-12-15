@@ -237,7 +237,11 @@
                                         </connections>
                                     </barButtonItem>
                                     <barButtonItem width="213" style="plain" systemItem="fixedSpace" id="wYo-BD-5E0"/>
-                                    <barButtonItem title="Update" id="mH4-tC-xTv"/>
+                                    <barButtonItem title="Update" id="mH4-tC-xTv">
+                                        <connections>
+                                            <action selector="update:" destination="Oao-z0-kEc" id="KLG-P3-dmJ"/>
+                                        </connections>
+                                    </barButtonItem>
                                 </items>
                                 <variation key="widthClass=compact" fixedFrame="YES">
                                     <rect key="frame" x="0.0" y="623" width="375" height="44"/>
@@ -844,7 +848,7 @@
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
+        <segue reference="Atl-f8-brT"/>
         <segue reference="MWF-pE-8AV"/>
-        <segue reference="WH8-NU-Qc7"/>
     </inferredMetricsTieBreakers>
 </document>

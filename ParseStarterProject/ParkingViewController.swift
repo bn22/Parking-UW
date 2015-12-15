@@ -15,6 +15,7 @@ class ParkingViewController: UIViewController, UITableViewDataSource, UITableVie
     var eventData = [PFObject]()
     var data = [PFObject]()
     var array = []
+    var query = PFQuery(className:"Garage_Info")
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -69,6 +70,29 @@ class ParkingViewController: UIViewController, UITableViewDataSource, UITableVie
         performSegueWithIdentifier("parkingDetail", sender: self)
     }
 
+    @IBAction func update(sender: AnyObject) {
+        query.whereKey("garageName", notEqualTo:"")
+        query.orderByDescending("openSpots")
+        query.findObjectsInBackgroundWithBlock {
+            (objects: [PFObject]?, error: NSError?) -> Void in
+            
+            if error == nil {
+                // The find succeeded.
+                print("Successfully retrieved \(objects!.count) garages.")
+                // Do something with the found objects
+                if let objects = objects {
+                    //let defaults = NSUserDefaults.standardUserDefaults()
+                    self.data = objects
+                    //defaults.setObject(objects, forKey: "data")
+                }
+            } else {
+                // Log details of the failure
+                print("Error: \(error!) \(error!.userInfo)")
+            }
+            
+        }
+        self.ParkingTable.reloadData()
+    }
     
     
     // MARK: - Navigation
